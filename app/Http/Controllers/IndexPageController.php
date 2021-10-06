@@ -13,4 +13,5 @@ class IndexPageController extends Controller
             'blogs'=>$blogs
         ]);
     }
+
 }

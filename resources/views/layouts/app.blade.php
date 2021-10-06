@@ -13,19 +13,18 @@
     <livewire:styles/>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        input:focus{
-            border:1px solid ;
-        }
-    </style>
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script> <!--ckeditor-->
 </head>
 <body class="font-sans bg-gray-background text-gray-900" x-data="{top:true}">
 <header class="fixed bg-gray-500 sm:bg-gray-500 z-50 flex flex-col top-0 left-0 right-0 md:flex-row items-center text-white justify-center md:space-x-12 px-8 md:py-3"
         :class="{'bg-black sm:bg-black md:bg-black lg:bg-black ': !top}"
         @scroll.window="top= (window.pageYOffset)>20 ? false : true">
-    <a href="" class="flex items-center justify-between space-x-2 hover:text-gray-200" style="text-decoration: none">
-        <img src="https://res.cloudinary.com/dkerurdbc/image/upload/v1626028809/Free_Sample_By_Wix_2_vos1qi.jpg" class="h-12 w-12 rounded-full" alt="">
-        <div class="pl-4 text-lg tracking-widest">Blogging Arena</div>
+    <a href="{{route('home')}}" class="flex items-center justify-between space-x-2 hover:text-gray-200" style="text-decoration: none">
+        <img src="https://res.cloudinary.com/dkerurdbc/image/upload/v1633546223/BlogArena_Logo_1_e86duh.gif" class="h-12 w-12 rounded-full" alt="">
+        <div class="pl-2 text-lg tracking-widest">Blogging Arena</div>
+    </a>
+    <a href="{{route('addBlog')}}" class="flex items-center justify-between space-x-2 hover:text-gray-200" style="text-decoration: none">
+        <div class="pl-4 text-lg tracking-widest">Add Blog</div>
     </a>
     <div class="flex items-center justify-between">
         @if (Route::has('login'))
@@ -53,15 +52,16 @@
         @endif
         <a href="">
             @if(auth()->user())
-                <img src="" alt="avatar" class="w-10 h-10 rounded-full">
+                <img src="{{auth()->user()->img_url}}" alt="avatar" class="w-10 h-10 rounded-full">
             @endif
         </a>
     </div>
 </header>
-<div class="container md:mt-24 max-w-custom mx-auto pt-36 sm:pt-36 md:pt-8" style="border:1px solid pink">
+<div class="container md:mt-24 max-w-custom mx-auto pt-36 sm:pt-36 md:pt-8">
     @yield('content')
 </div>
 
-
+@yield('scripts')
 <livewire:scripts/>
 </body>
+

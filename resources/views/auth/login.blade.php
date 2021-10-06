@@ -1,8 +1,10 @@
+@extends('layouts.app')
+@section('content')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="https://res.cloudinary.com/dkerurdbc/image/upload/v1633546223/BlogArena_Logo_1_e86duh.gif" class="h-72 w-72 rounded rounded-full" alt="">
             </a>
         </x-slot>
 
@@ -54,3 +56,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+@endsection
